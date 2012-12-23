@@ -34,7 +34,7 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_PREBUILT_KERNEL := device/samsung/espressovzw/kernel
 
 TARGET_RECOVERY_INITRC := device/samsung/espressovzw/init.rc
-#TARGET_NO_INITLOGO := true
+TARGET_NO_INITLOGO := true
 
 # TWRP
 DEVICE_RESOLUTION := 1024x600
