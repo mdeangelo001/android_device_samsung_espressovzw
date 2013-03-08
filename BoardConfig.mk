@@ -9,6 +9,7 @@ USE_CAMERA_STUB := true
 TARGET_NO_BOOTLOADER := true
 TARGET_BOARD_PLATFORM := msm8960
 TARGET_CPU_ABI := armeabi
+TARGET_ARCH := arm
 TARGET_BOOTLOADER_BOARD_NAME := espressovzw
 
 BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31
