@@ -5,7 +5,7 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 $(call inherit-product-if-exists, vendor/samsung/espressovzw/espressovzw-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/samsung/espressovzw/overlay
+#DEVICE_PACKAGE_OVERLAYS += device/samsung/espressovzw/overlay
 
 LOCAL_PATH := device/samsung/espressovzw
 ifeq ($(TARGET_PREBUILT_KERNEL),)
