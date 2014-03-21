@@ -17,6 +17,8 @@ BOARD_KERNEL_CMDLINE := androidboot.hardware=qcom user_debug=31
 BOARD_KERNEL_BASE := 0x80200000
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01300000
 BOARD_KERNEL_PAGESIZE := 2048
+TARGET_KERNEL_SOURCE := kernel/samsung/espressovzw
+TARGET_KERNEL_CONFIG := espresso_vzw_defconfig
 
 # Recovery
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/espressovzw/recovery/recovery_keys.c
@@ -33,8 +35,7 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1572864000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 28651290624
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-TARGET_PREBUILT_KERNEL := device/samsung/espressovzw/kernel
-
+TARGET_PROVIDES_POWERHAL := true
 TARGET_RECOVERY_INITRC := device/samsung/espressovzw/init.rc
 
 # TWRP
@@ -49,3 +50,5 @@ TW_INTERNAL_STORAGE_PATH := "/data/media"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
 TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+RECOVERY_TOUCHSCREEN_SWAP_XY := true
+RECOVERY_TOUCHSCREEN_FLIP_Y := true
