@@ -21,9 +21,6 @@
 # lines, full and maguro, hence its name.
 #
  
-PRODUCT_PACKAGES := \
-    Stk
-
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from espressovzw device
@@ -32,6 +29,6 @@ $(call inherit-product, device/samsung/espressovzw/device.mk)
 # Set those variables here to overwrite the inherited values.
 PRODUCT_NAME := full_espressovzw
 PRODUCT_DEVICE := espressovzw
-PRODUCT_BRAND := Verizon
+PRODUCT_BRAND := samsung
 PRODUCT_MANUFACTURER := samsung
-PRODUCT_MODEL := SCH-I705
+PRODUCT_MODEL := espressovzw
