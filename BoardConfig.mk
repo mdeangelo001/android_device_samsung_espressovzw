@@ -26,7 +26,7 @@ BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/espressovzw/recovery/re
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_RECOVERY_FSTAB := device/samsung/espressovzw/recovery.fstab
+TARGET_RECOVERY_FSTAB := device/samsung/espressovzw/rootdir/etc/fstab.qcom
 
 TARGET_SPECIFIC_HEADER_PATH := device/samsung/espressovzw/include
 
@@ -71,8 +71,8 @@ WIFI_DRIVER_FW_PATH_AP      := "ap"
 WIFI_DRIVER_FW_PATH_P2P     :=
 
 #Audio
-#BOARD_HAVE_AUDIENCE_A2220 := true
-BOARD_HAVE_AUDIENCE_A2220 :=
+BOARD_HAVE_AUDIENCE_A2220 := true
+#BOARD_HAVE_AUDIENCE_A2220 :=
 #BOARD_USES_SEPERATED_VOICE_SPEAKER := true
 #BOARD_USES_FLUENCE_INCALL := false
 #BOARD_USES_FLUENCE_FOR_VOIP := false
