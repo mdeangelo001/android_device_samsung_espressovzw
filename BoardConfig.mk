@@ -11,6 +11,8 @@
 # Insert contents of file near end of updater-script
 #TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := ./build/tools/releasetools/ota_from_target_files -e ./device/samsung/d2lte/apexq-common/installer_extra
 
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 5200936960
+
 # Kernel
 TARGET_KERNEL_CONFIG        := cyanogen_espressovzw_defconfig
 BOARD_MKBOOTIMG_ARGS        := --ramdisk_offset 0x01500000
@@ -48,7 +50,7 @@ WIFI_DRIVER_FW_PATH_AP      := "ap"
 WIFI_DRIVER_FW_PATH_P2P     :=
 
 #Audio
-BOARD_HAVE_AUDIENCE_A2220 :=
+#BOARD_HAVE_AUDIENCE_A2220 :=
 BOARD_USES_SEPERATED_VOICE_SPEAKER := true
 BOARD_USES_FLUENCE_INCALL := false
 BOARD_USES_FLUENCE_FOR_VOIP := false
