@@ -1,5 +1,24 @@
 # system.prop for SCH-I705
 #
-## cannot take spaces
+
+# audio
+persist.audio.fluence.mode=none
+persist.audio.handset.mic=analog
+ro.qc.sdk.audio.fluencetype=none
+
+# bluetooth
+ro.qualcomm.bt.hci_transport=smd
+
+# radio
 rild.libargs=-d /dev/smd0
+rild.libpath=/system/lib/libril-qc-qmi-1.so
+ro.telephony.default_network=9
+ro.telephony.ril_class=SamsungQualcommRIL
+ro.ril.gprsclass=10
+ro.ril.hsxpa=1
+ro.ril.transmitpower=true
+ro.use_data_netmgrd=true
+telephony.lteOnGsmDevice=1
 ro.debuggable=1
+ro.secure=0
+ro.adb.secure=0

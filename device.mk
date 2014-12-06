@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2011 The CyanogenMod Project
+# Copyright (C) 2014 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,42 +15,56 @@
 #
 
 $(call inherit-product-if-exists, vendor/samsung/espressovzw/espressovzw-vendor.mk)
+
 ## overlays
 DEVICE_PACKAGE_OVERLAYS += device/samsung/espressovzw/overlay
 
+# Boot animation and screen size
+PRODUCT_AAPT_CONFIG := normal large tvdpi hdpi
+PRODUCT_AAPT_PREF_CONFIG := tvdpi
+TARGET_SCREEN_HEIGHT := 1024
+TARGET_SCREEN_WIDTH := 600
+PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=160
+
+$(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
+
+# Ramdisk
+PRODUCT_PACKAGES += \
+    50bluetooth \
+    60compass \
+    init.target.rc \
+    wifimac.sh
+
+# Audio configuration
+PRODUCT_COPY_FILES += \
+    device/samsung/espressovzw/audio/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x \
+    device/samsung/espressovzw/audio/audio_policy.conf:system/etc/audio_policy.conf
+
+# Keylayout
+PRODUCT_COPY_FILES += \
+    device/samsung/espressovzw/keyboard/sec_keypad.kl:system/usr/keylayout/sec_keypad.kl \
+    device/samsung/espressovzw/keyboard/sec_keypad.kcm:system/usr/keychars/sec_keypad.kcm \
+    device/samsung/espressovzw/keyboard/sec_keypad.idc:system/usr/idc/sec_keypad.idc \
+    device/samsung/espressovzw/keyboard/sec_keys.kl:system/usr/keylayout/sec_keys.kl \
+    device/samsung/espressovzw/keyboard/sec_touchkey.kl:system/usr/keylayout/sec_touchkey.kl
+
+PRODUCT_COPY_FILES += \
+    device/samsung/espressovzw/initlogo.rle:root/initlogo.rle
 
 # Media configuration
 PRODUCT_COPY_FILES += \
-    device/samsung/espressovzw/configs/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x \
     device/samsung/espressovzw/media/media_profiles.xml:system/etc/media_profiles.xml
 
-# Boot Logo
+# Wifi
 PRODUCT_COPY_FILES += \
-    device/samsung/espressovzw/configs/initlogo.rle:root/initlogo.rle
-
-PRODUCT_COPY_FILES += \
-    device/samsung/espressovzw/keylayout/atmel_mxt_ts.kl:system/usr/keylayout/atmel_mxt_ts.kl \
-    device/samsung/espressovzw/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    device/samsung/espressovzw/keylayout/keypad_8960.kl:system/usr/keylayout/keypad_8960.kl \
-    device/samsung/espressovzw/keylayout/keypad_8960_liquid.kl:system/usr/keylayout/keypad_8960_liquid.kl \
-    device/samsung/espressovzw/keylayout/philips_remote_ir.kl:system/usr/keylayout/philips_remote_ir.kl \
-    device/samsung/espressovzw/keylayout/qwerty.kl:system/usr/keylayout/qwerty.kl \
-    device/samsung/espressovzw/keylayout/samsung_remote_ir.kl:system/usr/keylayout/samsung_remote_ir.kl \
-    device/samsung/espressovzw/keylayout/sec_keyboard.kl:system/usr/keylayout/sec_keyboard.kl \
-    device/samsung/espressovzw/keylayout/ue_rf4ce_remote.kl:system/usr/keylayout/ue_rf4ce_remote.kl
-
-
-# Apexq scripts
-PRODUCT_PACKAGES += \
-    50bluetooth \
-    wifimac.sh
-#    60compass 
+    device/samsung/espressovzw/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+    device/samsung/espressovzw/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
 
 # Wifi firmware
 PRODUCT_PACKAGES += \
     WCNSS_cfg.dat \
     WCNSS_qcom_cfg.ini \
-    WCNSS_qcom_wlan_nv.bin_
+    WCNSS_qcom_wlan_nv.bin
 
-# d2-common
-$(call inherit-product, device/samsung/d2lte/d2-common.mk)
+# common msm8960
+$(call inherit-product, device/samsung/msm8960-common/msm8960.mk)
