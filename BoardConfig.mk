@@ -21,22 +21,22 @@
 #
 
 # inherit from the proprietary version
--include vendor/samsung/expressatt/BoardConfigVendor.mk
+-include vendor/samsung/espressovzw/BoardConfigVendor.mk
 
 # inherit from common msm8960
 -include device/samsung/msm8960-common/BoardConfigCommon.mk
 
-TARGET_SPECIFIC_HEADER_PATH += device/samsung/expressatt/include
+TARGET_SPECIFIC_HEADER_PATH += device/samsung/espressovzw/include
 
 # Kernel
-TARGET_KERNEL_CONFIG := cyanogen_expressatt_defconfig
+TARGET_KERNEL_CONFIG := cyanogen_espressovzw_defconfig
 
 # Asserts
-TARGET_OTA_ASSERT_DEVICE := expressatt,expressziglteatt,SGH-I437,SGH-I437P
-TARGET_BOARD_INFO_FILE ?= device/samsung/expressatt/board-info.txt
+TARGET_OTA_ASSERT_DEVICE := espressovzw,SCH-I750
+TARGET_BOARD_INFO_FILE ?= device/samsung/espressovzw/board-info.txt
 
 # Audio
-BOARD_HAVE_AUDIENCE_A2220 := true
+#BOARD_HAVE_AUDIENCE_A2220 := true
 BOARD_HAVE_DOCK_USBAUDIO := true
 BOARD_HAVE_NEW_QCOM_CSDCLIENT := true
 BOARD_USES_FLUENCE_FOR_VOIP := true
@@ -45,7 +45,7 @@ BOARD_USES_SEPERATED_AUDIO_INPUT := true
 BOARD_USES_SEPERATED_VOIP := true
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/expressatt/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/espressovzw/bluetooth
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
 QCOM_BT_USE_SMD_TTY := true
@@ -59,18 +59,19 @@ TARGET_NEED_PREVIEW_SIZE_FIXUP := true
 BOARD_HAVE_NEW_QC_GPS := true
 
 # Lights
-BOARD_USE_BLN := true
+#BOARD_USE_BLN := true
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 10485760
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_CACHEIMAGE_PARTITION_SIZE := 880803840
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 10485760
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1258291200
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 5498732544
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1572864000
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 5200936960
+TARGET_RECOVERY_FSTAB := device/samsung/espressovzw/rootdir/etc/fstab.qcom
 
 # RIL
-BOARD_RIL_CLASS := ../../../device/samsung/expressatt/ril
+BOARD_RIL_CLASS := ../../../device/samsung/espressovzw/ril
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
@@ -86,4 +87,4 @@ WIFI_DRIVER_FW_PATH_STA     := "sta"
 WIFI_DRIVER_FW_PATH_AP      := "ap"
 
 # Releasetools
-TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/expressatt
+TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/espressovzw

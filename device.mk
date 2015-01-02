@@ -15,19 +15,19 @@
 #
 
 ## (2) Also get non-open-source specific aspects if available
-$(call inherit-product-if-exists, vendor/samsung/expressatt/expressatt-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/espressovzw/espressovzw-vendor.mk)
 
 ## overlays
-DEVICE_PACKAGE_OVERLAYS += device/samsung/expressatt/overlay
+DEVICE_PACKAGE_OVERLAYS += device/samsung/espressovzw/overlay
 
 # Boot animation and screen size
-PRODUCT_AAPT_CONFIG := normal hdpi
-PRODUCT_AAPT_PREF_CONFIG := hdpi
-TARGET_SCREEN_HEIGHT := 800
-TARGET_SCREEN_WIDTH := 480
-PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=240
+PRODUCT_AAPT_CONFIG := normal large tvdpi hdpi
+PRODUCT_AAPT_PREF_CONFIG := tvdpi
+TARGET_SCREEN_HEIGHT := 1024
+TARGET_SCREEN_WIDTH := 600
+PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=160
 
-$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -36,43 +36,41 @@ PRODUCT_PACKAGES += \
     wifimac.sh
 
 PRODUCT_COPY_FILES += \
-    device/samsung/expressatt/rootdir/etc/init.qcom.rc:root/init.qcom.rc \
-    device/samsung/expressatt/rootdir/etc/ueventd.qcom.rc:root/ueventd.qcom.rc
+    device/samsung/espressovzw/rootdir/etc/init.qcom.rc:root/init.qcom.rc \
+    device/samsung/espressovzw/rootdir/etc/ueventd.qcom.rc:root/ueventd.qcom.rc
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
-    device/samsung/expressatt/audio/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x \
-    device/samsung/expressatt/audio/audio_policy.conf:system/etc/audio_policy.conf
+    device/samsung/espressovzw/audio/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x \
+    device/samsung/espressovzw/audio/audio_policy.conf:system/etc/audio_policy.conf
 
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8960
 
 PRODUCT_COPY_FILES += \
-    device/samsung/expressatt/gps/gps.conf:system/etc/gps.conf
+    device/samsung/espressovzw/gps/gps.conf:system/etc/gps.conf
 
 # Keylayout
 PRODUCT_COPY_FILES += \
-    device/samsung/expressatt/keylayout/fsa9485.kl:system/usr/keylayout/fsa9485.kl \
-    device/samsung/expressatt/keylayout/msm8960-snd-card_Button_Jack.kl:system/usr/keylayout/msm8960-snd-card_Button_Jack.kl \
-    device/samsung/expressatt/keylayout/sec_key.kl:system/usr/keylayout/sec_key.kl \
-    device/samsung/expressatt/keylayout/sec_keys.kl:system/usr/keylayout/sec_keys.kl \
-    device/samsung/expressatt/keylayout/sec_powerkey.kl:system/usr/keylayout/sec_powerkey.kl \
-    device/samsung/expressatt/keylayout/sec_touchkey.kl:system/usr/keylayout/sec_touchkey.kl \
-    device/samsung/expressatt/keylayout/sii9234_rcp.kl:system/usr/keylayout/sii9234_rcp.kl
+    device/samsung/espressovzw/keylayout/msm8960-snd-card_Button_Jack.kl:system/usr/keylayout/msm8960-snd-card_Button_Jack.kl \
+    device/samsung/espressovzw/keylayout/sec_key.kl:system/usr/keylayout/sec_key.kl \
+    device/samsung/espressovzw/keylayout/sec_keys.kl:system/usr/keylayout/sec_keys.kl \
+    device/samsung/espressovzw/keylayout/sec_powerkey.kl:system/usr/keylayout/sec_powerkey.kl \
+    device/samsung/espressovzw/keylayout/sec_touchkey.kl:system/usr/keylayout/sec_touchkey.kl
 
 # Logo
 PRODUCT_COPY_FILES += \
-    device/samsung/expressatt/initlogo.rle:root/initlogo.rle
+    device/samsung/espressovzw/initlogo.rle:root/initlogo.rle
 
 # Media profile
 PRODUCT_COPY_FILES += \
-    device/samsung/expressatt/media/media_profiles.xml:system/etc/media_profiles.xml
+    device/samsung/espressovzw/media/media_profiles.xml:system/etc/media_profiles.xml
 
 # Wifi
 PRODUCT_COPY_FILES += \
-    device/samsung/expressatt/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
-    device/samsung/expressatt/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
+    device/samsung/espressovzw/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+    device/samsung/espressovzw/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf
 
 PRODUCT_PACKAGES += \
     wpa_supplicant.conf

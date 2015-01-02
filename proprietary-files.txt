@@ -30,29 +30,11 @@ lib/libmmcamera_statsproc30.so
 lib/libmmjpeg.so
 lib/libmmstillomx.so
 lib/liboemcamera.so
-lib/libchromatix_s5k3l1yx_default_video.so
-lib/libchromatix_s5k3l1yx_preview.so
-lib/libchromatix_s5k3l1yx_video_hd.so
-lib/libchromatix_s5k3l1yx_zsl.so
-
-# Camera firmware
-cameradata/SlimISP_GC.bin
-cameradata/SlimISP_GD.bin
-cameradata/SlimISP_GE.bin
-cameradata/SlimISP_GH.bin
-cameradata/SlimISP_JH.bin
-cameradata/SlimISP_PH.bin
-cameradata/SlimISP_WH.bin
-cameradata/SlimISP_ZC.bin
-cameradata/SlimISP_ZD.bin
-cameradata/SlimISP_ZE.bin
-cameradata/SlimISP_ZH.bin
+lib/libchromatix_s5k4e1_default_video.so
+lib/libchromatix_ss5k4e1_preview.so
 
 # Media
 lib/libExtendedExtractor.so
-
-# NFC
-lib/hw/nfc.msm8960.so
 
 # QMI
 lib/libqdi.so

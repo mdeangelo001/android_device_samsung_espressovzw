@@ -24,7 +24,7 @@ LOCAL_PATH := $(call my-dir)
 
 ifeq ($(BOARD_VENDOR),samsung)
 ifeq ($(TARGET_BOARD_PLATFORM),msm8960)
-ifneq ($(filter expressatt,$(TARGET_DEVICE)),)
+ifneq ($(filter espressovzw,$(TARGET_DEVICE)),)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
 FIRMWARE_DSPS_IMAGES := \
@@ -40,14 +40,16 @@ $(FIRMWARE_DSPS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_DSPS_SYMLINKS)
 
 FIRMWARE_MODEM_IMAGES := \
-    modem.b00 modem.b01 modem.b02 modem.b03 modem.b04 modem.b05 modem.b06 modem.b07 modem.b08 \
-    modem.b09 modem.mdt
+    modem.b00 modem.b01 modem.b02 modem.b03 modem.b04 modem.b05 modem.b06 modem.b07 modem.mdt
 
 FIRMWARE_MODEM_IMAGES += \
-    modem_fw.b00 modem_fw.b01 modem_fw.b02 modem_fw.b03 modem_fw.b04 modem_fw.b05 modem_fw.b06 \
-    modem_fw.b07 modem_fw.b08 modem_fw.b09 modem_fw.b10 modem_fw.b11 modem_fw.b13 modem_fw.b14 \
-    modem_fw.b21 modem_fw.b22 modem_fw.b23 modem_fw.b25 modem_fw.b26 modem_fw.b29 modem_fw.fli \
-    modem_fw.mdt
+    modem_f1.b00 modem_f1.b01 modem_f1.b02 modem_f1.b03 modem_f1.b04 modem_fw.b05 modem_f1.b06 \
+    modem_f1.b07 modem_f1.b08 modem_f1.b09 modem_f1.b10 modem_f1.b11 modem_fw.b13 modem_f1.b14 \
+    modem_f1.b21 modem_f1.b22 modem_f1.b23 modem_f1.b25 modem_f1.b26 modem_fw.b29 modem_f1.fli \
+    modem_f1.mdt modem_f2.b00 modem_f2.b01 modem_f2.b02 modem_f2.b03 modem_f2.b04 modem_f2.b05 \
+    modem_f2.b06 modem_f2.b07 modem_f2.b08 modem_f2.b09 modem_f2.b10 modem_f2.b11 modem_f2.b13 \
+    modem_f2.b14 modem_f2.b21 modem_f2.b22 modem_f2.b23 modem_f2.b25 modem_f2.b26 modem_f2.b29 \
+    modem_f2.fli modem_f2.mdt
 
 FIRMWARE_MODEM_SYMLINKS := $(addprefix $(TARGET_OUT_ETC)/firmware/,$(notdir $(FIRMWARE_MODEM_IMAGES)))
 $(FIRMWARE_MODEM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)

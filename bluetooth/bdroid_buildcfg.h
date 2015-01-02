@@ -18,7 +18,7 @@
 #ifndef _BDROID_BUILDCFG_H
 #define _BDROID_BUILDCFG_H
 
-#define BTM_DEF_LOCAL_NAME	"Galaxy Express"
+#define BTM_DEF_LOCAL_NAME	"Galaxy Tab 2"
 #define BTA_DISABLE_DELAY 1000	/* in milliseconds */
 #define BLUETOOTH_QTI_SW TRUE
 #define BTA_HOST_INTERLEAVE_SEARCH TRUE

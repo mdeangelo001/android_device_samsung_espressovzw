@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-""" Custom OTA commands for expressatt devices """
+""" Custom OTA commands for espressovzw devices """
 
 import os
 
