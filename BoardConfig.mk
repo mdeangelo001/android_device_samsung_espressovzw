@@ -30,7 +30,7 @@ TARGET_SPECIFIC_HEADER_PATH += device/samsung/espressovzw/include
 
 # Kernel
 TARGET_KERNEL_CONFIG := cyanogen_espressovzw_defconfig
-
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 # Asserts
 TARGET_OTA_ASSERT_DEVICE := espressovzw,SCH-I750
 TARGET_BOARD_INFO_FILE ?= device/samsung/espressovzw/board-info.txt

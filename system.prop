@@ -19,3 +19,7 @@ telephony.lteOnGsmDevice=1
 
 # sensors
 ro.yas.enable=true
+ro.adb.secure=0
+ro.secure=0
+ro.debuggable=1
+ro.allow.mock.location=1
