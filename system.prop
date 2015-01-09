@@ -1,4 +1,4 @@
-# system.prop for SGH-I437
+# system.prop for SGH-I750
 #
 
 # audio
@@ -13,8 +13,8 @@ ro.qualcomm.bt.hci_transport=smd
 # radio
 rild.libargs=-d /dev/smd0
 rild.libpath=/system/lib/libril-qc-qmi-1.so
-ro.telephony.default_network=9
-ro.telephony.ril_class=expressattRIL
+ro.telephony.default_network=10
+ro.telephony.ril_class=espressovzwRIL
 telephony.lteOnGsmDevice=1
 
 # sensors
