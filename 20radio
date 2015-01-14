@@ -1,0 +1,9 @@
+#!/system/bin/sh
+
+(
+    logcat -b radio > /data/data/radio.txt
+) & 
+
+killall logwrapper
+
+exit 0
