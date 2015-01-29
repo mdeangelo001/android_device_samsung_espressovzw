@@ -21,8 +21,9 @@ $(call inherit-product-if-exists, vendor/samsung/espressovzw/espressovzw-vendor.
 DEVICE_PACKAGE_OVERLAYS += device/samsung/espressovzw/overlay
 
 # Boot animation and screen size
-PRODUCT_AAPT_CONFIG := normal large tvdpi hdpi
-PRODUCT_AAPT_PREF_CONFIG := tvdpi
+PRODUCT_AAPT_CONFIG := large mdpi hdpi xhdpi
+PRODUCT_AAPT_PREF_CONFIG := mdpi
+PRODUCT_LOCALES += mdpi
 TARGET_SCREEN_HEIGHT := 1024
 TARGET_SCREEN_WIDTH := 600
 PRODUCT_PROPERTY_OVERRIDES += ro.sf.lcd_density=160
