@@ -40,6 +40,9 @@ ro.telephony.default_cdma_sub=0
 # Use IMSI from SIM
 ro.telephony.get_imsi_from_sim=true
 
+# rotation
+ro.sf.hwrotation=270
+
 # sensors
 ro.yas.enable=true
 ro.adb.secure=0
