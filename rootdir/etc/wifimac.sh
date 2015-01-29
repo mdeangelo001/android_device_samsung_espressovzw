@@ -8,7 +8,7 @@
 # MACSOURCE or from commandline.
 
 # Edit the following four variables for other devices as needed.
-NVSOURCE="/system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin"
+NVSOURCE="/system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin_"
 SYM="/system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin"
 MACSOURCE="/efs/wifi/.mac.info"
 DEST="/persist/WCNSS_qcom_wlan_nv.bin"
