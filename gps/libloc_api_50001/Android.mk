@@ -86,7 +86,7 @@ LOCAL_CFLAGS += \
 
 LOCAL_C_INCLUDES:= \
     $(TARGET_OUT_HEADERS)/gps.utils \
-    device/samsung/expressatt/gps/ulp/inc
+    device/samsung/espressovzw/gps/ulp/inc
 
 LOCAL_PRELINK_MODULE := false
 
