@@ -2,7 +2,6 @@ on early-init
     wait /dev/kgsl-3d0
 
 on post-fs-data
-    write /dev/wcnss_wlan 1
     write /sys/module/wcnss_ssr_8960/parameters/enable_riva_ssr 1
     write /sys/devices/platform/wcnss_wlan.0/serial_number ${ro.serialno}
 
@@ -46,6 +45,10 @@ on post-fs-data
 on boot
     exec /system/bin/btnvtool -O
     chown bluetooth bluetooth /efs/bluetooth/bt_addr
+
+    # create symlink to qcn wpa_supplicant folder
+    symlink /data/misc/wifi/wpa_supplicant /data/system/wpa_supplicant
+    symlink /dev/socket/wpa_wlan0 /data/system/wpa_supplicant/wlan0
 
 # Services start here
 
