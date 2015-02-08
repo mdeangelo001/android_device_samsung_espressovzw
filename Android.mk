@@ -56,7 +56,7 @@ $(FIRMWARE_MODEM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "Modem Firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /firmware-mdm/image/$(notdir $@) $@
+	$(hide) ln -sf /firmware-mdm/image/$(notdir $(subst modem_fw,modem_f2,$@)) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_MODEM_SYMLINKS)
 
