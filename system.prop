@@ -2,7 +2,6 @@
 #
 
 # audio
-lpa.decode=true
 persist.audio.fluence.mode=endfire
 persist.audio.handset.mic=digital
 ro.qc.sdk.audio.fluencetype=fluence
@@ -10,11 +9,17 @@ ro.qc.sdk.audio.fluencetype=fluence
 # bluetooth
 ro.qualcomm.bt.hci_transport=smd
 
+# wifi
+wifi.interface=wlan0
+wifi.supplicant_scan_interval=150
+
 # radio
 ## cannot take spaces
 rild.libargs=-d /dev/smd0
-
-rild.libpath=/system/lib/libsec-ril.so
+ro.ril.gprsclass=10
+ro.ril.hsxpa=1
+ro.ril.transmitpower=true
+rild.libpath=/system/lib/libril-qc-qmi-1.so
 ro.cdma.home.operator.numeric=311480
 ro.cdma.home.operator.alpha=Verizon
 ro.cdma.subscribe_on_ruim_ready=true
@@ -23,6 +28,7 @@ ro.telephony.default_network=10
 telephony.lteOnCdmaDevice=1
 telephony.sms.pseudo_multipart=0
 ril.subscription.types=NV,RUIM
+ro.use_data_netmgrd=true
 ro.telephony.ril_class=espressovzwRIL
 
 # Moar ril props

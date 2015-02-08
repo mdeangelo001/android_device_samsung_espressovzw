@@ -22,8 +22,6 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(BOARD_VENDOR),samsung)
-ifeq ($(TARGET_BOARD_PLATFORM),msm8960)
 ifneq ($(filter espressovzw,$(TARGET_DEVICE)),)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 
@@ -35,7 +33,7 @@ $(FIRMWARE_DSPS_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "DSPS Firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+	$(hide) ln -sf /firmware-mdm/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_DSPS_SYMLINKS)
 
@@ -58,7 +56,7 @@ $(FIRMWARE_MODEM_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "Modem Firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /firmware/image/$(notdir $(subst modem_fw,modem_f2,$@)) $@
+	$(hide) ln -sf /firmware-mdm/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_MODEM_SYMLINKS)
 
@@ -70,7 +68,7 @@ $(FIRMWARE_Q6_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "Q6 Firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+	$(hide) ln -sf /firmware-mdm/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_Q6_SYMLINKS)
 
@@ -82,9 +80,7 @@ $(FIRMWARE_SSHDCPAP_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "SSHDCPAP Firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /firmware/image/$(notdir $@) $@
-
-ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_SSHDCPAP_SYMLINKS)
+	$(hide) ln -sf /firmware-mdm/image/$(notdir $@) $@
 
 FIRMWARE_TZ_IMAGES := \
     tzapps.b00 tzapps.b01 tzapps.b02 tzapps.b03 tzapps.mdt
@@ -94,7 +90,7 @@ $(FIRMWARE_TZ_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "TZ Firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+	$(hide) ln -sf /firmware-mdm/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_TZ_SYMLINKS)
 
@@ -106,7 +102,7 @@ $(FIRMWARE_VIDC_SYMLINKS): $(LOCAL_INSTALLED_MODULE)
 	@echo "Vidc Firmware link: $@"
 	@mkdir -p $(dir $@)
 	@rm -rf $@
-	$(hide) ln -sf /firmware/image/$(notdir $@) $@
+	$(hide) ln -sf /firmware-mdm/image/$(notdir $@) $@
 
 ALL_DEFAULT_INSTALLED_MODULES += $(FIRMWARE_VIDC_SYMLINKS)
 
@@ -117,5 +113,4 @@ $(shell mkdir -p $(TARGET_OUT)/etc/firmware/wlan/prima; \
 	    $(TARGET_OUT)/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini)
 
 endif
-endif
-endif
+

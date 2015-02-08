@@ -30,7 +30,7 @@ import init.qcom.usb.rc
 on early-init
     write /sys/block/mmcblk0/queue/scheduler noop
 
-    mkdir /firmware 0771 system system
+    mkdir /firmware-mdm 0771 system system
     symlink /data/tombstones /tombstones
     mkdir /efs 0771 system system
 
@@ -260,6 +260,9 @@ on post-fs-data
     mkdir /data/connectivity 0771 system system
     chown system system /data/connectivity
 
+    mkdir /data/connectivity/nsrm 0771 system system
+    chown system system /data/connectivity/nsrm
+
     #HDCP2.X : The directory permission is temporary.
     mkdir /efs/drm 0775  system system
     mkdir /efs/drm/dxhdcp2 0774  system system
@@ -297,10 +300,15 @@ on post-fs-data
     # Color Calibration
     chown root system /sys/class/misc/gammacontrol/tuner
     chmod 0664 /sys/class/misc/gammacontrol/tuner
+    restorecon /sys/class/misc/gammacontrol/tuner
 
     #Create the symlink to qcn wpa_supplicant folder for ar6000 wpa_supplicant
     mkdir /data/system 0775 system system
     rm /data/system/wpa_supplicant
+
+    #Create directories for wiper services
+    mkdir /data/wpstiles/ 0755 shell
+    mkdir /data/wiper 0755 location qcom_oncrpc
 
     #Create directories for gpsone_daemon services
     mkdir /data/misc/gpsone_d 0770 system gps
@@ -397,6 +405,9 @@ on post-fs-data
 
     # h2k permission
     chmod 0644 /efs/redata.bin
+    chown radio radio /efs/h2k.dat
+    chmod 0644 /efs/h2k.dat
+    chown system system /efs/drm/h2k
 
     # Permissions for Camera
     chown system radio /sys/class/camera/rear/rear_camfw
@@ -507,20 +518,6 @@ on post-fs-data
     # volume up/down key
     chown radio system /sys/class/sec/sec_key/wakeup_keys
 
-    # Define TCP buffer sizes for various networks
-    #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
-    setprop net.tcp.buffersize.default 4096,87380,704512,4096,16384,110208
-    setprop net.tcp.buffersize.wifi    524288,1048576,2097152,262144,524288,1048576
-    setprop net.tcp.buffersize.lte     524288,1048576,2560000,524288,1048576,2560000
-    setprop net.tcp.buffersize.umts    4094,87380,704512,4096,16384,110208
-    setprop net.tcp.buffersize.hspa    4092,87380,704512,4096,16384,262144
-    setprop net.tcp.buffersize.hsupa   4092,87380,704512,4096,16384,262144
-    setprop net.tcp.buffersize.hsdpa   4092,87380,704512,4096,16384,110208
-    setprop net.tcp.buffersize.hspap   4092,87380,704512,4096,16384,262144
-    setprop net.tcp.buffersize.edge    4093,26280,35040,4096,16384,35040
-    setprop net.tcp.buffersize.gprs    4096,30000,30000,4096,8760,11680
-    setprop net.tcp.buffersize.evdo    4094,87380,262144,4096,16384,262144
-
     setprop vold.post_fs_data_done 1
 
 on property:init.svc.surfaceflinger=stopped
@@ -539,6 +536,11 @@ on property:bluetooth.isEnabled=true
 
 on property:vold.decrypt=trigger_restart_framework
     start config_bluetooth
+
+service irsc_util /system/bin/irsc_util "/etc/sec_config"
+    class main
+    user root
+    oneshot
 
 service rmt_storage /system/bin/rmt_storage
     class core
@@ -609,9 +611,6 @@ service p2p_supplicant /system/bin/wpa_supplicant \
     disabled
     oneshot
 
-service netmgrd /system/bin/netmgrd
-    class core
-
 service dhcpcd_wlan0 /system/bin/dhcpcd -aABDKL
     class main
     disabled
@@ -635,12 +634,6 @@ service iprenew_wlan0 /system/bin/dhcpcd -n
 service iprenew_p2p /system/bin/dhcpcd -n
     class main
     disabled
-    oneshot
-
-service wcnss-service /system/bin/wcnss_service
-    class main
-    user system
-    group system wifi
     oneshot
 
 service dhcpcd_bnep0 /system/bin/dhcpcd -BKLG
@@ -670,6 +663,14 @@ service dhcpcd_bt-pan /system/bin/dhcpcd -ABKLG
 service iprenew_bt-pan /system/bin/dhcpcd -n
     disabled
     oneshot
+
+on property:crypto.driver.load=1
+     insmod /system/lib/modules/qce.ko
+     insmod /system/lib/modules/qcedev.ko
+
+on property:crypto.driver.load=0
+     exec /system/bin/rmmod qcedev.ko
+     exec /system/bin/rmmod qce.ko
 
 service wifi-crda /system/bin/sh /system/etc/init.crda.sh
    class late_start
@@ -750,6 +751,11 @@ on property:sys.boot_completed=1
     chmod 664 /sys/module/msm_dcvs/cores/cpu0/slack_time_min_us
     chmod 664 /sys/module/msm_mpdecision/slack_time_max_us
     chmod 664 /sys/module/msm_mpdecision/slack_time_min_us
+    write /sys/module/cpu_boost/parameters/boost_ms 10
+    write /sys/module/cpu_boost/parameters/input_boost_ms 10
+    write /sys/module/cpu_boost/parameters/sync_threshold 1242000
+    write /sys/module/cpu_boost/parameters/input_boost_freq 1134000
+
     # Set performance profile
     setprop sys.perf.profile 1
     start thermald
@@ -797,7 +803,12 @@ service ril-daemon /system/bin/rild
     socket rild-debug stream 660 radio system
     socket rild-cas stream 666  casdrm mmb
     user root
-    group radio cache inet misc audio log qcom_diag sdcard_r shell sdcard_rw
+    group radio cache inet misc audio log qcom_diag
+
+service secril-daemon /system/bin/sec-ril
+    class main
+    user root
+    group radio cache inet misc audio sdcard_rw qcom_diag log
 
 # virtual sdcard daemon running as media_rw (1023)
 service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
@@ -902,7 +913,9 @@ service mpdecision /system/bin/mpdecision --avg_comp
     group root system
     disabled
 
-service kickstart /system/bin/qcks -i /firmware/image
+service kickstart /system/bin/qcks -i /firmware-mdm/image/
+    user root
+    group radio cache inet misc audio sdcard_rw log system
     oneshot
     disabled
 
@@ -910,6 +923,12 @@ service kickstart /system/bin/qcks -i /firmware/image
 on property:ro.baseband=mdm
     mkdir /data/qcks 0770 system system
     start kickstart
+    start qmuxd
+
+# boot completed
+on property:dev.bootcomplete=1
+    # disable pulsing led on boot complete
+    exec /system/bin/sh /system/etc/init.led.sh
 
 # bugreport is triggered by holding down volume down, volume up and power
 service bugreport /system/bin/dumpstate -d -p -B \

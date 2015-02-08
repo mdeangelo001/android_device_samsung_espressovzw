@@ -18,7 +18,7 @@
 /dev/msm_hw3dc            0666   root       root
 
 # the DIAG device node is not world writable/readable.
-/dev/diag                 0660   system     qcom_diag
+/dev/diag                 0660   radio      radio
 
 # the genlock client device node is world writable/readable.
 /dev/genlock              0666   system     system
@@ -53,6 +53,7 @@
 /dev/pmem_adsp*           0660   system     audio
 /dev/pmem_smipool*        0660   system     camera
 /dev/pmem_camera*         0660   system     camera
+/dev/oncrpc/*             0660   root       qcom_oncrpc
 /dev/adsp/*               0660   system     audio
 /dev/snd/*                0660   system     audio
 /dev/mt9t013              0660   system     system
@@ -65,6 +66,7 @@
 /dev/cm3602               0640   compass    system
 /dev/akm8976_pffd         0640   compass    system
 /dev/lightsensor          0640   system     system
+/dev/radio0               0644   fm_radio   fm_radio
 /dev/i2c-0                0664   root       system
 /dev/i2c-1                0664   root       system
 /dev/i2c-2                0664   root       system
@@ -154,10 +156,17 @@
 # CDMA radio interface MUX
 /dev/ts0710mux*           0640   radio      radio
 /dev/ppp                  0660   radio      vpn
+/dev/smd_cxm_qmi          0640   radio      radio
+/sys/devices/virtual/smdpkt/smdcntl*       open_timeout   0664 radio radio
+
+# MDM devices
+/dev/block/mmcblk0p13     0660  system      radio
+/dev/block/mmcblk0p14     0660  system      radio
+/dev/block/mmcblk0p15     0660  system      radio
 
 # sysfs properties
-/sys/devices/virtual/input/input*   enable      0660  root   input
-/sys/devices/virtual/input/input*   poll_delay  0660  root   input
+/sys/devices/virtual/input/input*       poll_delay      0660    system  radio
+/sys/devices/virtual/input/input*       enable          0660    system  radio
 #permissions for video
 /dev/msm_vidc_reg         0660  system       audio
 /dev/msm_vidc_dec         0660  system       audio
@@ -205,7 +214,7 @@
 /dev/dun               0660   system     system
 
 # for PL2303 driver
-/dev/ttyUSB0           0666   system     system
+/dev/ttyUSB0           0660   system     radio
 
 # wlan
 /dev/rfkill               0660   root       wifi

@@ -71,6 +71,19 @@ service orientationd /system/bin/orientationd
     group system input
     disabled
 
+service netmgrd /system/bin/netmgrd
+    class main
+
+on property:ro.use_data_netmgrd=false
+    # netmgr not supported on specific target
+    stop netmgrd
+
+service wcnss-service /system/bin/wcnss_service
+    class main
+    user system
+    group system wifi
+    oneshot
+
 on property:ro.yas.enable=true
     start orientationd
     start geomagneticd
