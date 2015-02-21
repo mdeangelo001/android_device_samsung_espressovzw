@@ -45,13 +45,6 @@ PRODUCT_COPY_FILES += \
     device/samsung/espressovzw/audio/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x \
     device/samsung/espressovzw/audio/audio_policy.conf:system/etc/audio_policy.conf
 
-# GPS
-PRODUCT_PACKAGES += \
-    gps.msm8960
-
-PRODUCT_COPY_FILES += \
-    device/samsung/espressovzw/gps/gps.conf:system/etc/gps.conf
-
 # Keylayout
 PRODUCT_COPY_FILES += \
     device/samsung/espressovzw/keylayout/msm8960-snd-card_Button_Jack.kl:system/usr/keylayout/msm8960-snd-card_Button_Jack.kl \

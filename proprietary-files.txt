@@ -43,7 +43,13 @@ lib/libqmi_client_qmux.so
 vendor/lib/libdiag.so
 
 # GPS
+etc/gps.conf
+lib/libgeofence.so
+lib/hw/gps.default.so
+lib/libgps.utils.so
+lib/libloc_adapter.so
 lib/libloc_api_v02.so
+lib/libloc_eng.so
 
 # Radio
 lib/libcordon.so
