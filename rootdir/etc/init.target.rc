@@ -68,12 +68,14 @@ service geomagneticd /system/bin/geomagneticd
     user compass
     group system input
     disabled
+    seclabel u:r:geomagneticd:s0
 
 service orientationd /system/bin/orientationd
     class main
     user compass
     group system input
     disabled
+    seclabel u:r:orientationd:s0
 
 service netmgrd /system/bin/netmgrd
     class main
