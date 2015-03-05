@@ -45,9 +45,18 @@ PRODUCT_COPY_FILES += \
     device/samsung/espressovzw/audio/snd_soc_msm_2x:system/etc/snd_soc_msm/snd_soc_msm_2x \
     device/samsung/espressovzw/audio/audio_policy.conf:system/etc/audio_policy.conf
 
+# IR packages
+PRODUCT_PACKAGES += \
+    consumerir.msm8960
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.consumerir.xml:system/etc/permissions/android.hardware.consumerir.xml
+
 # Keylayout
 PRODUCT_COPY_FILES += \
     device/samsung/espressovzw/keylayout/msm8960-snd-card_Button_Jack.kl:system/usr/keylayout/msm8960-snd-card_Button_Jack.kl \
+    device/samsung/espressovzw/keylayout/philips_remote_ir.kl:system/usr/keylayout/philips_remote_ir.kl \
+    device/samsung/espressovzw/keylayout/samsung_remote_ir.kl:system/usr/keylayout/samsung_remote_ir.kl \
     device/samsung/espressovzw/keylayout/sec_key.kl:system/usr/keylayout/sec_key.kl \
     device/samsung/espressovzw/keylayout/sec_keys.kl:system/usr/keylayout/sec_keys.kl \
     device/samsung/espressovzw/keylayout/sec_powerkey.kl:system/usr/keylayout/sec_powerkey.kl \

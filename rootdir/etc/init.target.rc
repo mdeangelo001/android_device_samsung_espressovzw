@@ -46,6 +46,10 @@ on post-fs-data
     write /sys/class/input/input7/ellipsoid_mode 0
     write /sys/class/input/input7/static_matrix "10566 405 -81 760 9775 486 -876 1324 9758"
 
+# IrLED
+    chown system system /sys/class/sec/sec_ir/ir_send
+    chown system system /sys/class/sec/sec_ir/check_ir
+
 on boot
     exec /system/bin/btnvtool -O
     chown bluetooth bluetooth /efs/bluetooth/bt_addr
