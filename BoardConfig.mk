@@ -66,6 +66,14 @@ TARGET_RECOVERY_FSTAB := device/samsung/espressovzw/rootdir/etc/fstab.qcom
 # RIL
 BOARD_RIL_CLASS := ../../../device/samsung/espressovzw/ril
 
+# Selinux
+BOARD_SEPOLICY_DIRS += \
+    device/samsung/espressovzw/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+    file_contexts \
+    geomagneticd.te
+
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_HAS_QCOM_WLAN_SDK := true
