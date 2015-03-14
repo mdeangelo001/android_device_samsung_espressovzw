@@ -19,7 +19,7 @@ rild.libargs=-d /dev/smd0
 ro.ril.gprsclass=10
 ro.ril.hsxpa=1
 ro.ril.transmitpower=true
-rild.libpath=/system/lib/libril-qc-qmi-1.so
+rild.libpath=/system/lib/libsec-ril.so
 ro.cdma.home.operator.numeric=311480
 ro.cdma.home.operator.alpha=Verizon
 ro.cdma.subscribe_on_ruim_ready=true
@@ -28,7 +28,6 @@ ro.telephony.default_network=10
 telephony.lteOnCdmaDevice=1
 telephony.sms.pseudo_multipart=0
 ril.subscription.types=NV,RUIM
-ro.use_data_netmgrd=true
 ro.telephony.ril_class=espressovzwRIL
 
 # Moar ril props
@@ -55,3 +54,5 @@ ro.adb.secure=0
 ro.secure=0
 ro.debuggable=1
 ro.allow.mock.location=1
+
+persist.sys.isUsbOtgEnabled=1
