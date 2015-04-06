@@ -51,6 +51,21 @@ lib/libloc_adapter.so
 lib/libloc_api_v02.so
 lib/libloc_eng.so
 
+# GPU
+lib/egl/eglsubAndroid.so
+lib/egl/libEGL_adreno200.so
+lib/egl/libGLESv1_CM_adreno200.so
+lib/egl/libGLESv2_adreno200.so
+lib/egl/libGLESv2S3D_adreno200.so
+lib/egl/libq3dtools_adreno200.so
+lib/libc2d2_z180.so
+lib/libC2D2.so
+lib/libCB.so
+lib/libgsl.so
+lib/libOpenCL.so
+lib/libOpenVG.so
+lib/libsc-a2xx.so
+
 # Radio
 bin/ds_fmc_appd
 bin/efsks
