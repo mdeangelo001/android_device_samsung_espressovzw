@@ -14,8 +14,8 @@
 # limitations under the License.
 #
 
-## (2) Also get non-open-source specific aspects if available
-$(call inherit-product-if-exists, vendor/samsung/espressovzw/espressovzw-vendor.mk)
+# common msm8960
+$(call inherit-product, device/samsung/msm8960-common/msm8960.mk)
 
 ## overlays
 DEVICE_PACKAGE_OVERLAYS += device/samsung/espressovzw/overlay
@@ -92,5 +92,7 @@ PRODUCT_COPY_FILES += \
     device/samsung/espressovzw/20radio:system/etc/init.d/20radio \
     device/samsung/espressovzw/30kmsg:system/etc/init.d/30kmsg
 
-# common msm8960
-$(call inherit-product, device/samsung/msm8960-common/msm8960.mk)
+
+
+## (2) Also get non-open-source specific aspects if available
+$(call inherit-product-if-exists, vendor/samsung/espressovzw/espressovzw-vendor.mk)
