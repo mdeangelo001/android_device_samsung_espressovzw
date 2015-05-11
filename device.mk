@@ -82,10 +82,5 @@ PRODUCT_PACKAGES += \
     WCNSS_cfg.dat \
     WCNSS_qcom_wlan_nv.bin
 
-PRODUCT_COPY_FILES += \
-    device/samsung/espressovzw/10logcat:system/etc/init.d/10logcat \
-    device/samsung/espressovzw/20radio:system/etc/init.d/20radio \
-    device/samsung/espressovzw/30kmsg:system/etc/init.d/30kmsg
-
 # common msm8960
 $(call inherit-product, device/samsung/msm8960-common/msm8960.mk)
