@@ -33,8 +33,7 @@ $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
 # Ramdisk
 PRODUCT_PACKAGES += \
     init.bt.sh \
-    init.target.rc \
-    wifimac.sh
+    init.target.rc
 
 # Audio configuration
 PRODUCT_COPY_FILES += \
