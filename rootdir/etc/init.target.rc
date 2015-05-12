@@ -87,6 +87,9 @@ service wcnss-service /system/bin/wcnss_service
 on property:bluetooth.hciattach=true
     start hciattach
 
+on property:bluetooth.hciattach=false
+    setprop bluetooth.status off
+
 on property:ro.yas.enable=true
     start orientationd
     start geomagneticd
