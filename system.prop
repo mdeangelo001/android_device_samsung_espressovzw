@@ -20,9 +20,12 @@ ro.ril.gprsclass=10
 ro.ril.hsxpa=1
 ro.ril.transmitpower=true
 rild.libpath=/system/lib/libsec-ril.so
-ro.cdma.home.operator.numeric=311480
 ro.cdma.home.operator.alpha=Verizon
-ro.cdma.subscribe_on_ruim_ready=true
+gsm.sim.operator.alpha=Verizon
+gsm.operator.alpha=Verizon
+ro.cdma.home.operator.numeric=311480
+gsm.sim.operator.numeric=311480
+gsm.operator.numeric=311480
 ro.ril.svdo=true
 ro.telephony.default_network=10
 telephony.lteOnCdmaDevice=1
@@ -36,6 +39,7 @@ persist.radio.snapshot_timer=22
 ro.config.multimode_cdma=1
 ro.config.combined_signal=true
 ro.gsm.data_retry_config=max_retries=infinite,5000,5000,60000,120000,480000,900000
+ro.cdma.data_retry_config=max_retries=infinite,5000,5000,60000,120000,480000,900000
 DEVICE_PROVISIONED=1
 persist.eons.enabled=false
 
@@ -49,9 +53,5 @@ ro.telephony.get_imsi_from_sim=true
 ro.sf.hwrotation=270
 
 # sensors
-ro.yas.enable=true
-ro.adb.secure=0
-ro.secure=0
-ro.debuggable=1
 ro.allow.mock.location=1
 
