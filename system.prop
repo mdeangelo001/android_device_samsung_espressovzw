@@ -53,5 +53,4 @@ ro.telephony.get_imsi_from_sim=true
 ro.sf.hwrotation=270
 
 # sensors
-ro.allow.mock.location=1
-
+ro.yas.enable=true
