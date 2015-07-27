@@ -5,6 +5,7 @@
 persist.audio.fluence.mode=endfire
 persist.audio.handset.mic=digital
 ro.qc.sdk.audio.fluencetype=fluence
+persist.audio.vr.enable=false
 
 # bluetooth
 ro.qualcomm.bt.hci_transport=smd
