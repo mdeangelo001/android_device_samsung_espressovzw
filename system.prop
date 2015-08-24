@@ -20,12 +20,7 @@ ro.ril.gprsclass=10
 ro.ril.hsxpa=1
 ro.ril.transmitpower=true
 rild.libpath=/system/lib/libsec-ril.so
-ro.cdma.home.operator.alpha=Verizon
-gsm.sim.operator.alpha=Verizon
-gsm.operator.alpha=Verizon
-ro.cdma.home.operator.numeric=311480
-gsm.sim.operator.numeric=311480
-gsm.operator.numeric=311480
+
 ro.ril.svdo=true
 ro.telephony.default_network=10
 telephony.lteOnCdmaDevice=1
