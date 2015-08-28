@@ -32,7 +32,7 @@ lib/libmmjpeg.so
 lib/libmmstillomx.so
 lib/liboemcamera.so
 lib/libchromatix_s5k4e1_default_video.so
-lib/libchromatix_ss5k4e1_preview.so
+lib/libchromatix_s5k4e1_preview.so
 
 # Media
 lib/libExtendedExtractor.so
