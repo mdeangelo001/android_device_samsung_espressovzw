@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /**
- * Copyright (c) 2009, The Android Open Source Project
+ * Copyright (c) 2014, The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,8 +16,13 @@
  * limitations under the License.
  */
 -->
+
 <resources>
     <!-- HACK for wifi not turning on without reboot -->
     <bool name="def_wifi_on">true</bool>
-
+    <!-- Set the automatic brightness mode on by default -->
+    <bool name="def_screen_brightness_automatic_mode">true</bool>
+    <!-- Default screen brightness, from 0 to 255. -->
+    <integer name="def_screen_brightness">102</integer>
 </resources>
+

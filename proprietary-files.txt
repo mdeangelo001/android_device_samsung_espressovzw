@@ -69,6 +69,8 @@ lib/libomission_avoidance.so
 lib/libreference-ril.so
 lib/libsecril-client.so
 lib/libxml.so
+lib/libril.so
+lib/libsec-ril.so
 vendor/lib/libconfigdb.so
 vendor/lib/libdsutils.so
 vendor/lib/libidl.so
@@ -88,9 +90,23 @@ bin/orientationd
 lib/hw/sensors.msm8960.so
 lib/libakmd.so
 lib/libinvensense_hal.so
+lib/libmagnet.so
 lib/libmllite.so
 lib/libmlplatform.so
 lib/libsensor_yamaha532_test.so
+
+# Widevine
+lib/drm/libfwdlockengine.so
+lib/libQSEEComAPI.so
+lib/liboemcrypto.so
+vendor/lib/drm/libdrmwvmplugin.so
+vendor/lib/libWVStreamControlAPI_L1.so
+vendor/lib/libWVphoneAPI.so
+vendor/lib/libdrmdecrypt.so
+vendor/lib/libwvdrm_L1.so
+vendor/lib/libwvm.so
+vendor/lib/mediadrm/libdrmclearkeyplugin.so
+vendor/lib/mediadrm/libwvdrmengine.so
 
 # Wifi
 bin/macloader

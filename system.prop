@@ -5,6 +5,7 @@
 persist.audio.fluence.mode=endfire
 persist.audio.handset.mic=digital
 ro.qc.sdk.audio.fluencetype=fluence
+persist.audio.vr.enable=false
 
 # bluetooth
 ro.qualcomm.bt.hci_transport=smd
@@ -20,12 +21,7 @@ ro.ril.gprsclass=10
 ro.ril.hsxpa=1
 ro.ril.transmitpower=true
 rild.libpath=/system/lib/libsec-ril.so
-ro.cdma.home.operator.alpha=Verizon
-gsm.sim.operator.alpha=Verizon
-gsm.operator.alpha=Verizon
-ro.cdma.home.operator.numeric=311480
-gsm.sim.operator.numeric=311480
-gsm.operator.numeric=311480
+
 ro.ril.svdo=true
 ro.telephony.default_network=10
 telephony.lteOnCdmaDevice=1
@@ -41,6 +37,8 @@ ro.config.combined_signal=true
 ro.gsm.data_retry_config=max_retries=infinite,5000,5000,60000,120000,480000,900000
 ro.cdma.data_retry_config=max_retries=infinite,5000,5000,60000,120000,480000,900000
 DEVICE_PROVISIONED=1
+ro.ril.force_eri_from_xml=true
+
 persist.eons.enabled=false
 
 # Set default cdma subscription to RUIM in database
